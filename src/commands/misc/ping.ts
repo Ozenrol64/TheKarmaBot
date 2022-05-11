@@ -9,6 +9,7 @@ export class PingCommand extends Command {
       description: "Ping the bot",
       type: "SLASH_COMMAND",
       category: "Misc",
+      examples: '/ping',
     });
   }
   async execute(interaction: CommandInteraction) {

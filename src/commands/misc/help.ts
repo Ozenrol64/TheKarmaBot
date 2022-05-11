@@ -9,6 +9,10 @@ export class HelpCommand extends Command {
             description: "La commande help renvoie les informations sur les commandes du bot",
             type: "SLASH_COMMAND",
             category: "Misc",
+            examples: [
+                '/help',
+                '/help ping'
+            ],
             options: [
                 {
                     name: "commande",
@@ -35,8 +39,8 @@ export class HelpCommand extends Command {
       Si vous avez besoin de plus de précisions [retrouvez mon créateur](https://discord.gg/ex8H5nX2)
       ---------------`)
                         .addField(
-                            `${cmd}`,
-                            `Les informations sur la commande`
+                            `${cmd.charAt(0).toUpperCase() + cmd.slice(1)}`,
+                            `${c.description}`
                         )
                         .setTimestamp()
                         .setColor('#dc143c')
@@ -71,7 +75,7 @@ export class HelpCommand extends Command {
                 `${commandsInCategory
                     .map(
                         (cmd) =>
-                            "__" + `/` + cmd.name + " __ - " + cmd.description
+                            "__" + `/` + cmd.name + " __ - "
                     )
                     .join(`\r\n`)}`
             );
