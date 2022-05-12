@@ -15,12 +15,12 @@ export class JokeCommand extends Command {
         });
     }
     execute(interaction: CommandInteraction) {
-        let min = 1;
-        let max = 11;
+        let min: number = 1;
+        let max: number = 11;
         let random = Math.random() * (max - min) + min;
         const joke = Math.floor(random)
         const title = 'It\'s a Joke!';
-        let text = ""
+        let text: string = ""
 
         switch (joke) {
             case 1:
