@@ -38,9 +38,9 @@ export class HelpCommand extends Command {
                         .setDescription(`Retrouvez ci-dessous les informations sur la commande ${cmd}!
       Si vous avez besoin de plus de précisions [retrouvez mon créateur](https://discord.gg/ex8H5nX2)
       ---------------`)
-                        .addField(
-                            `${cmd.charAt(0).toUpperCase() + cmd.slice(1)}`,
-                            `${c.description}`
+                        .addFields(
+                            { name: 'Description', value: c.description, inline: true },
+                            { name: 'Exemple(s)', value: Array.isArray(c.examples) ? c.examples.join(', ') : 'Erreur', inline: true }
                         )
                         .setTimestamp()
                         .setColor('#dc143c')
