@@ -75,7 +75,7 @@ export class HelpCommand extends Command {
                 `${commandsInCategory
                     .map(
                         (cmd) =>
-                            "__" + `/` + cmd.name + " __ - "
+                            "__" + `/` + cmd.name + " __"
                     )
                     .join(`\r\n`)}`
             );
