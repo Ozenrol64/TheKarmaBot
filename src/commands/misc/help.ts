@@ -40,7 +40,7 @@ export class HelpCommand extends Command {
       ---------------`)
                         .addFields(
                             { name: 'Description', value: c.description, inline: true },
-                            { name: 'Exemple(s)', value: Array.isArray(c.examples) ? c.examples.join(', ') : 'Erreur', inline: true }
+                            { name: 'Exemple(s)', value: Array.isArray(c.examples) ? c.examples.join(', ') : c.examples, inline: true }
                         )
                         .setTimestamp()
                         .setColor('#dc143c')
