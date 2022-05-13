@@ -42,6 +42,7 @@ export class BanCommand extends Command {
         const embed = new MessageEmbed()
             .setAuthor({ name: `${member.tag} (${member.id})`, iconURL: member.displayAvatarURL() })
             .setTitle('Bannissement!')
+            .setColor('#dc143c')
             .setDescription(`${member.tag} a été banni pour la raison: ${reason}`)
             .setFooter({ text: interaction.user.username, iconURL: interaction.user.avatarURL() })
             .setTimestamp()
