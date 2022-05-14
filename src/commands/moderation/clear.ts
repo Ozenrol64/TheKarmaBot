@@ -32,6 +32,7 @@ export class ClearCommand extends Command {
 
         const embed = new MessageEmbed()
             .setTitle('Résumé du clear')
+            .setColor('#dc143c')
             .setDescription(`${number} messages ont été supprimés!`)
             .setFooter({ text: interaction.user.username, iconURL: interaction.user.avatarURL() })
             .setTimestamp();
