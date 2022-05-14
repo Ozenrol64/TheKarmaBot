@@ -6,14 +6,14 @@ export class BanCommand extends Command {
     constructor(client: ShewenyClient) {
         super(client, {
             name: "ban",
-            description: "Ping the bot",
+            description: "La commande ban banni un membre du serveur",
             type: "SLASH_COMMAND",
             category: "Modération",
             options: [
                 {
                     type: "USER",
                     name: "member",
-                    description: "Le membre à bannir",
+                    description: "Le membre qui doit être banni",
                     required: true,
                 },
                 {
