@@ -1,6 +1,9 @@
 import { ShewenyClient } from "sheweny";
+import mongoose from 'mongoose'
+import { TOKEN, MONGOSTRING } from "../util/config";
 
 export class client extends ShewenyClient {
+  start: () => void;
   constructor() {
     super({
       admins: ['708015637645099049'],
@@ -43,6 +46,22 @@ export class client extends ShewenyClient {
           loadAll: true,
         },
       },
-    })
+    });
+    this.start = async () => {
+      try {
+        await mongoose.connect(MONGOSTRING, {
+          autoIndex: false,
+          maxPoolSize: 10,
+          serverSelectionTimeoutMS: 5000,
+          socketTimeoutMS: 45000,
+          family: 4
+        });
+        console.log('DB connectée');
+      } catch (e) {
+        console.log("DB pas connectée!\n\n", e)
+        return process.exit();
+      }
+      return this.login(TOKEN);
+    }
   }
 };
