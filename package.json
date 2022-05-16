@@ -7,6 +7,9 @@
     "start": "ts-node ./src/index.ts"
   },
   "keywords": [],
+  "engines": {
+    "node": "16.x.x"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
