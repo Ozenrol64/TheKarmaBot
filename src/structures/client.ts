@@ -1,11 +1,9 @@
 import { ShewenyClient } from "sheweny";
 import mongoose from 'mongoose'
 import { TOKEN, MONGOSTRING } from "../util/config";
-import { GuildProvider } from "./providers";
 
 export class client extends ShewenyClient {
   start: () => void;
-  GuildSettings: GuildProvider;
   constructor() {
     super({
       admins: ['708015637645099049'],
@@ -49,8 +47,6 @@ export class client extends ShewenyClient {
         },
       },
     });
-
-    this.GuildSettings = new GuildProvider
 
     this.start = async () => {
       try {

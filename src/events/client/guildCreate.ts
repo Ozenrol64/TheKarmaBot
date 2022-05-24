@@ -1,8 +1,7 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
-import type { Guild, GuildMember } from "discord.js";
-import { server } from '../../structures/models'
-import { GuildProvider } from "../../structures/providers";
+import type { Guild } from "discord.js";
+import { server } from '../../structures/models/guildModels'
 
 export class GuildCreate extends Event {
   constructor(client: ShewenyClient) {
