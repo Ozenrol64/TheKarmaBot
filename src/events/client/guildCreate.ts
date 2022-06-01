@@ -1,7 +1,7 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
 import type { Guild } from "discord.js";
-import { server } from '../../structures/models/guildModels'
+import { server } from '../../structures/models/guildModel'
 
 export class GuildCreate extends Event {
   constructor(client: ShewenyClient) {
@@ -13,15 +13,15 @@ export class GuildCreate extends Event {
 
   async execute(guild: Guild) {
     const members = await guild.members.fetch();
-    const guildMembers = members.map(m => m.id)
     const guildId = guild.id;
     let guildArray: object[] = []
 
-    guildMembers.forEach(id => {
+    members.forEach(mem => {
+      if (mem.user.bot) return;
       guildArray.push(
         {
-          id: id,
-          level: 0
+          id: mem.id,
+          experience: 0,
         }
       )
     })

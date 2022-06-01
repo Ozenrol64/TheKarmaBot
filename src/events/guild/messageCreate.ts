@@ -1,7 +1,7 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
 import * as guildSettings from '../../structures/providers/guildProviders';
-import { DBGuild, DBguildMember } from "../../structures/class";
+import { DBGuild } from "../../structures/class";
 import { Guild, GuildMember, Message } from "discord.js";
 
 export class MessageCreate extends Event {
@@ -16,14 +16,14 @@ export class MessageCreate extends Event {
     let min: number = 1;
     let max: number = 13;
     let random = Math.random() * (max - min) + min;
-    const xp = Math.floor(random)
+    const xp: number = Math.floor(random)
 
     async function updateLevel(guild: Guild, member: GuildMember) {
       let data: DBGuild = await guildSettings.get(guild);
 
       data.members.forEach(mem => {
         if (mem.id.match(member.id)) {
-          mem.level++
+          mem.experience + xp;
         }
       })
       return data

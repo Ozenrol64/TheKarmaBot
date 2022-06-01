@@ -1,6 +1,6 @@
 import { Guild, GuildMember } from "discord.js";
 import { DBGuild } from "../class";
-import { server }  from "../models/guildModels";
+import { server }  from "../models/guildModel";
 
 
     export async function get(guild: Guild) {
