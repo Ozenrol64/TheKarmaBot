@@ -21,7 +21,7 @@ export class GuildCreate extends Event {
       guildArray.push(
         {
           id: mem.id,
-          experience: 0,
+          exp: 0,
         }
       )
     })

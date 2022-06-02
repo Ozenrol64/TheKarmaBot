@@ -1,6 +1,6 @@
 import { Event } from "sheweny";
 import type { ShewenyClient } from "sheweny";
-import * as guildSettings from '../../structures/providers/guildProviders';
+import * as guildSettings from '../../structures/providers/guildProvider';
 import { DBGuild } from "../../structures/class";
 import { Guild, GuildMember, Message } from "discord.js";
 
@@ -23,7 +23,7 @@ export class MessageCreate extends Event {
 
       data.members.forEach(mem => {
         if (mem.id.match(member.id)) {
-          mem.experience + xp;
+          mem.exp += xp;
         }
       })
       return data
