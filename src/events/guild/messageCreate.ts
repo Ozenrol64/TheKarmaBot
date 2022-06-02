@@ -13,6 +13,8 @@ export class MessageCreate extends Event {
   }
 
   async execute(message: Message) {
+    let pLevel: number = 1;
+    let pExp: number = 100;
     let min: number = 1;
     let max: number = 13;
     let random = Math.random() * (max - min) + min;
@@ -24,6 +26,17 @@ export class MessageCreate extends Event {
       data.members.forEach(mem => {
         if (mem.id.match(member.id)) {
           mem.exp += xp;
+
+          while (pLevel < 100) {
+            if (mem.exp >= pExp && mem.level + 1 === pLevel) {
+              mem.level = pLevel;
+              message.channel.send(`${message.member} Tu as gagné un niveau! Tu es maintenant niveau: ${mem.level}!`);
+              break;
+            } else {
+              pLevel++;
+              pExp = pExp * 2;
+            }
+          }
         }
       })
       return data

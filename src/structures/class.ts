@@ -6,4 +6,5 @@ export class DBGuild {
 export class DBguildMember {
 id: string
 exp: number
+level: number
 }

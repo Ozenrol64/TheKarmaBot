@@ -22,6 +22,7 @@ export class GuildCreate extends Event {
         {
           id: mem.id,
           exp: 0,
+          level: 0
         }
       )
     })

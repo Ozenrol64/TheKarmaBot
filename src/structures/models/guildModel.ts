@@ -5,7 +5,8 @@ const guildSchema = new Schema({
     members: [
         {
             id: String,
-            exp: Number
+            exp: Number,
+            level: Number,
         }
     ]
 })
