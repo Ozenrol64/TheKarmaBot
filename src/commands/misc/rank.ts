@@ -22,7 +22,7 @@ export class RankCommand extends Command {
         });
     }
     async execute(interaction: CommandInteraction) {
-        const data: DBGuild = await guildSettings.get(interaction.guild);
+        const data: DBGuild = await guildSettings.getGuild(interaction.guild);
         const member = interaction.options.getUser('member') ? interaction.options.getUser('member') : interaction.user;
 
         data.members.forEach(mem => {

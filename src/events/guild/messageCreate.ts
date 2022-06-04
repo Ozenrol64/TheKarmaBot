@@ -21,7 +21,7 @@ export class MessageCreate extends Event {
     const xp: number = Math.floor(random)
 
     async function updateLevel(guild: Guild, member: GuildMember) {
-      let data: DBGuild = await guildSettings.get(guild);
+      let data: DBGuild = await guildSettings.getGuild(guild);
 
       data.members.forEach(mem => {
         if (mem.id.match(member.id)) {
@@ -42,6 +42,6 @@ export class MessageCreate extends Event {
       return data
     };
     const updateData = await updateLevel(message.guild, message.member);
-    await guildSettings.update(message.guild, updateData);
+    await guildSettings.updateGuild(message.guild, updateData);
   }
 }

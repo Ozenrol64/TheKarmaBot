@@ -8,7 +8,11 @@ const guildSchema = new Schema({
             exp: Number,
             level: Number,
         }
-    ]
+    ],
+    blacklist: {
+        channels: [],
+        users: []
+    }
 })
 
 export const server = model('guilds', guildSchema);
