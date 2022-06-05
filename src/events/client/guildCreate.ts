@@ -27,7 +27,7 @@ export class GuildCreate extends Event {
       )
     })
 
-    server.create({ id: guildId, members: guildArray }, err => {
+    server.create({ id: guildId, logChannel: 'null', members: guildArray }, err => {
       if (err) return console.log("Erreur de création de guild");
       console.log(`Nouveau Serveur => ${guild.name} (${guildId})`);
     });  

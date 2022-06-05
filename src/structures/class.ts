@@ -1,5 +1,6 @@
 export class DBGuild {
     id: string
+    logChannel: string
     members: DBguildMember[]
     blacklist: {
         channels: string[]

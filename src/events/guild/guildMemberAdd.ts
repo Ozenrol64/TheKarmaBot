@@ -11,10 +11,10 @@ export class GuildMemberAdd extends Event {
             once: false,
         });
     }
-// 898240618906673184
+
     async execute(member: GuildMember) {
-        const logChannel = this.client.channels.cache.get('8982618906673184') as TextChannel;
         const server: DBGuild = await guildSettings.getGuild(member.guild);
+        const logChannel = this.client.channels.cache.get(server.logChannel) as TextChannel;
         let number: number = 0;
 
         server.members.forEach(mem => {
